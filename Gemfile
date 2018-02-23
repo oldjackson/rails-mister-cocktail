@@ -44,6 +44,8 @@ gem 'jquery-rails' # Add this line if you use Rails 5.1
 gem 'haml'
 gem 'cocoon' # for nested menus in views
 gem 'pry-byebug'
+gem 'figaro'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
