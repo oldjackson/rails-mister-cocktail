@@ -1,0 +1,16 @@
+<%= simple_form_for @cocktail do |f| %>
+  <%# binding.pry %>
+  <%= f.input :name %>
+  <h3> Ingredients </h3>
+
+  <div id="doses">
+    <% binding.pry %>
+    <%= f.simple_fields_for :doses do |dose| %>
+      <%= render 'dose_fields', f: dose %>
+      <div class="link">
+        <%= link_to_add_association 'add dose', f, :doses %>
+      </div>
+    <% end %>
+  </div>
+  <%= f.submit %>
+<% end %>
