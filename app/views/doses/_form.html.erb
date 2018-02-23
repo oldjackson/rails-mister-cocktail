@@ -1,0 +1,6 @@
+<!-- Creates a POST request to /cocktails/:cocktail_id/doses; ; adds the corresponding cocktail_id to the top level of params  -->
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
+  <%= f.association :ingredient%>  <!-- already renders dropdown and adds the corresponding ingredient_id to the params IN A HASH TOGETHER WITH the doses data -->
+  <%= f.input :description %>
+  <%= f.submit "Add", class: 'btn btn-primary' %>
+<% end %>

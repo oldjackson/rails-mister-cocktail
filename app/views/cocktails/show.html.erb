@@ -5,15 +5,18 @@
 
   <div>
     <h3>Ingredients</h3>
-    <% @cocktail.doses.each do  |dose| %>
+    <% @cocktail.doses.each do |dose| %>
 
     <div>
-      <%= dose.ingredient %> - <%= dose.description %>
+      <%= dose.ingredient.name %> - <%= dose.description %> --- <%= link_to "Remove", dose_path(dose), method: :delete %>
     </div>
 
     <% end %>
   </div>
-
+  <div>
+    <h3>Add an ingredient </h3>
+    <%= render 'doses/form', dose: @dose, cocktail: @cocktail %>
+  </div>
   <div>
     <%= link_to "Back to index", cocktails_path %>
   </div>

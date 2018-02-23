@@ -7,7 +7,6 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    binding.pry
     @cocktail = Cocktail.new(cocktail_params)
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
@@ -21,6 +20,8 @@ class CocktailsController < ApplicationController
   end
 
   def show
+    # needed to show the dose addition form along with the existing cocktail data in the view
+    @dose = Dose.new
   end
 
   private
@@ -30,6 +31,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, doses_attributes: [:id, :ingredient_id, :description, :_destroy])
+    params.require(:cocktail).permit(:name)
   end
 end
