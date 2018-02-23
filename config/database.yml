@@ -78,8 +78,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: rails-mister-cocktail_production
-  username: rails-mister-cocktail
-  password: <%= ENV['RAILS-MISTER-COCKTAIL_DATABASE_PASSWORD'] %>
+# production:
+#   <<: *default
+#   database: rails-mister-cocktail_production
+#   username: rails-mister-cocktail
+#   password: <%= ENV['RAILS-MISTER-COCKTAIL_DATABASE_PASSWORD'] %>
