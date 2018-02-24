@@ -1,14 +1,18 @@
 <div class="container">
   <h1>Our cocktails</h1>
-
-  <% @cocktails.each do  |cocktail| %>
-    <div>
-      <%= link_to (image_tag cocktail.photo.nil? ? "" : cocktail.photo.url(:thumnail), alt: cocktail.name) , cocktail_path(cocktail) %>
-      <br>
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+  <div class="row">
+    <% @cocktails.each do  |cocktail| %>
+    <%= link_to cocktail_path(cocktail) do %>
+    <div class="col-xs-12 col-sm-4 col-md-2" style="background-color: #c0c0c0; width: 300px; display:flex; align-items: center; flex-direction: column; padding-top: 20px;margin: 20px;">
+      <div style="border: 1px solid black; width: 256px; height: 256px; display:flex; align-items: center; justify-content: center;">
+        <%= cocktail.photo.file.nil? ? sanitize("<p>-- No picture -- </p>") : (image_tag cocktail.photo.url(:thumbnail), alt: cocktail.name) %>
+      </div>
+      <p style="margin: 10px;"><%= cocktail.name %></p>
     </div>
-    <br>
-  <% end %>
-
+    <% end %>
+    <% end %>
+  </div>
+  <br>
   <%= link_to "Add a new cocktail", new_cocktail_path %>
 </div>
+
