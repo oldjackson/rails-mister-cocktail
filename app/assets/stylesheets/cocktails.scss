@@ -1,0 +1,39 @@
+// Place all the styles related to the Cocktails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+  margin: 10px 0;
+  p {
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+.empty-thumbnail, .pic-thumbnail {
+  height: 256px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: red;
+  .empty-thumbnail p
+  {
+    color: gray;
+  }
+}
+
+.empty-thumbnail {
+  border: 1px solid black;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  p{
+    color: gray;
+  }
+}
+
+.pic-thumbnail {
+  background-size: cover;
+  background-position: center;
+}
