@@ -1,15 +1,24 @@
 <div class="container">
-  <h1>Our cocktails</h1>
+  <h1>Welcome to Mr Cocktail!</h1>
   <div class="row">
     <% @cocktails.each do  |cocktail| %>
-    <%= link_to cocktail_path(cocktail) do %>
-    <div class="col-xs-12 col-sm-4 col-md-2" style="background-color: #c0c0c0; width: 300px; display:flex; align-items: center; flex-direction: column; padding-top: 20px;margin: 20px;">
-      <div style="border: 1px solid black; width: 256px; height: 256px; display:flex; align-items: center; justify-content: center;">
-        <%= cocktail.photo.file.nil? ? sanitize("<p>-- No picture -- </p>") : (image_tag cocktail.photo.url(:thumbnail), alt: cocktail.name) %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <%= link_to cocktail_path(cocktail) do %>
+          <div style="margin: 10px 0;">
+            <% if cocktail.photo.file.nil? %>
+              <div style="border: 1px solid black; height: 256px; display:flex; align-items: center; justify-content: center;">
+                <%= sanitize("<p>-- No picture --</p>") %>
+              </div>
+            <% else %>
+              <div style="background-image: url(<%= cocktail.photo.url(:thumbnail) %>); height: 256px; background-size: cover;
+              background-position: center;"></div>
+            <% end %>
+            <p style="margin-top: 10px; text-align: center;">
+              <%= cocktail.name %>
+            </p>
+          </div>
+        <% end %>
       </div>
-      <p style="margin: 10px;"><%= cocktail.name %></p>
-    </div>
-    <% end %>
     <% end %>
   </div>
   <br>
