@@ -1,26 +1,30 @@
 <div class="container">
-  <h1>Welcome to Mr Cocktail!</h1>
+  <h1 class="text-center">Welcome to Mr Cocktail!</h1>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <%= link_to cocktail_path(cocktail) do %>
           <div class="card">
-            <% if cocktail.photo.file.nil? %>
-              <div class="empty-thumbnail">
-                <p>-- No picture --</p>
-              </div>
-            <% else %>
-              <div class="pic-thumbnail" style="background-image: url(<%= cocktail.photo.url(:thumbnail) %>);"></div>
-            <% end %>
-            <p>
-              <%= cocktail.name %>
-            </p>
+            <div class="thumb-wrapper">
+              <% if cocktail.photo.file.nil? %>
+                <div class="empty-thumbnail">
+                  <p>-- No picture --</p>
+                </div>
+              <% else %>
+                <div class="pic-thumbnail" style="background-image: url(<%= cocktail.photo.url(:thumbnail) %>);"></div>
+              <% end %>
+            </div>
+            <div class="cocktail-label">
+              <p><%= cocktail.name %></p>
+            </div>
           </div>
         <% end %>
       </div>
     <% end %>
   </div>
   <br>
-  <%= link_to "Add a new cocktail", new_cocktail_path %>
+  <div class="text-center">
+    <a href="<%= new_cocktail_path %>" class="btn btn-default">Add a new cocktail</a>
+  </div>
 </div>
 
